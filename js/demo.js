@@ -14,16 +14,7 @@ $('#paginated ul li').each(function(index){
     horizontalBar: false,
     paginated: true,
     onPageCountChange: function(pageCount, currentPage) {
-      var html = '';
-      for (var i = 0; i < pageCount; i++) {
-        if (i === currentPage) {
-          k = i;
-          html += '<span class="current"></span>';
-        } else {
-          html += '<span></span>';
-        }
-      }
-      document.getElementById('pager').innerHTML = html;
+      k = currentPage;
       jQuery(document).trigger('pageChange');
     },
     onCurrentPageChange: function(currentPage) {
@@ -102,13 +93,6 @@ var data_shown = '#'+$('#paginated ul').data('div');
 
 $(document).on('pageChange', function(){
   page_now = $('#paginated ul li:nth-child('+(k+1)+')').data('index');
-  pages = document.querySelectorAll('#pager > span');
-  Array.prototype.slice.apply(pages).forEach(function(page) {
-    page.className = '';
-  });
-  pages[page_now].className = 'current';
-// pager part done
-
 //----------------------    div data shown part starts
 
   var data_div = '#'+$('#paginated ul li:nth-child('+(k+1)+')').data('div');
