@@ -40,13 +40,17 @@ body {
 .wrapper > li {
   width: 500px;
   height: 300px;
-  background-color: #b8b;
-  color: #fff;
   display: inline-block;
-  font-size: 50px;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  line-height: 300px;
-  text-align: center;
+}
+
+.wrapper > li > div {
+  width: 500px;
+  height: 300px;
+  display: inline-block;
+}
+.wrapper > li > div > img {
+  height:inherit;
+  width:inherit;
 }
 
 .wrapper > li:nth-child(2) {
