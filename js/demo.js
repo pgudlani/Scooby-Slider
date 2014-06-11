@@ -36,12 +36,12 @@ var slideWidth = $('#paginated ul li').width();
 var slideHeight = $('#paginated ul li').height();
 var paginatedUlWidth = slideCount * slideWidth;
         
-        
     
 
 function moveLeft() {
     if(k==0)
     {
+        $('#paginated ul').clearQueue().finish();
         $('#paginated ul li:last-child').prependTo('#paginated ul');
         $('#paginated ul').css('left', -500);
         $('#paginated ul').animate({
@@ -50,6 +50,7 @@ function moveLeft() {
     }
     else
     {
+        $('#paginated ul').clearQueue().finish();
         $('#paginated ul').animate({
             left: + slideWidth
           }, 200, function(){
@@ -62,6 +63,7 @@ function moveLeft() {
 function moveRight() {
     if(k==slideCount-1)
     {
+        $('#paginated ul').clearQueue().finish();
         $('#paginated ul li:first-child').appendTo('#paginated ul');
         $('#paginated ul').css('left', +500);
         $('#paginated ul').animate({
@@ -70,6 +72,7 @@ function moveRight() {
     }
     else
     {
+        $('#paginated ul').clearQueue().finish();
         $('#paginated ul').animate({
             left: - slideWidth
         }, 200, function () {
