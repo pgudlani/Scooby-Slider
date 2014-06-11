@@ -2,6 +2,8 @@ var page_now, k, l;
 
 $('#paginated ul li').each(function(index){
     $(this).data('index',index);
+    var div_data = '#'+$(this).data('div');
+    $(div_data).hide();
 });
 
 (function(){
@@ -96,16 +98,25 @@ $(document).keydown(function(e){
     else if(e.which==39) moveRight();
 });
 
+var data_shown = '#'+$('#paginated ul').data('div');
+
 $(document).on('pageChange', function(){
   page_now = $('#paginated ul li:nth-child('+(k+1)+')').data('index');
-  console.log(page_now);
   pages = document.querySelectorAll('#pager > span');
   Array.prototype.slice.apply(pages).forEach(function(page) {
     page.className = '';
   });
   pages[page_now].className = 'current';
+// pager part done
+
+//----------------------    div data shown part starts
+
+  var data_div = '#'+$('#paginated ul li:nth-child('+(k+1)+')').data('div');
+  console.log(data_div);
+  console.log(page_now);
+  $(data_shown).html($(data_div).html());
+
 });
 
-var data_shown = '#'+$('#paginated ul').data('div');
 
 
