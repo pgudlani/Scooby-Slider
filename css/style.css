@@ -20,8 +20,8 @@ body {
 
 .container {
   outline: 1px solid #ccc;
-  width: 500px;
-  height: 300px;
+  width: 1000px;
+  height: 500px;
 }
 
 
@@ -38,41 +38,70 @@ body {
 }
 
 .wrapper > li {
-  width: 500px;
-  height: 300px;
+  width: 1000px;
+  height: 500px;
   display: inline-block;
 }
 
 .wrapper > li > div {
-  width: 500px;
-  height: 300px;
+  float:left;
+  width: inherit;
+  height: inherit;
   display: inline-block;
 }
-.wrapper > li > div > img {
-  height:inherit;
-  width:inherit;
+.wrapper > li > div > div {
+  float:left;
+  margin:10px 10px;
+}
+.row
+{
+    content:'\A';
+    position:absolute;
+    width:100%; height:100%;
+    top:0; left:0;
+    background:rgb(34,35,52);
+  
+}
+.row > div {
+    background:rgba(34,35,52, 0.15 );
+    opacity:1;
+    position:relative;
 }
 
-.wrapper > li:nth-child(2) {
-  background-color: #8b8;
+.row > div:first-child  {
+  height:480px;
+  width:680px;
+}
+.row > div:nth-child(2) {
+  height:280px;
+  width:280px;
+}
+.row > div:nth-child(3) {
+  height:180px;
+  width:280px;
+}
+.row > div:first-child >img {
+  height:480px;
+  width:680px;
+  opacity: 0.5;
+}
+.row > div:nth-child(2) > img {
+  height:280px;
+  width:280px;
+  opacity: 0.5;
+}
+.row > div:nth-child(3) > img {
+  height:180px;
+  width:280px;
+  opacity: 0.5;
 }
 
-#pager {
-  width: 500px;
-  margin: 10px 0 0 0;
-  text-align: center;
-}
-
-#pager > span {
-  width: 10px;
-  height: 10px;
-  display: inline-block;
-  vertical-align: middle;
-  background-color: #eee;
-  border-radius: 5px;
-  margin: 0 5px;
-}
-
-#pager > span.current {
-  background-color: #333;
+.corner
+{
+position: absolute;
+z-index: 2;
+color: white;
+font-size: 24px;
+right: 0;
+top: 0;
 }

@@ -38,10 +38,10 @@ function moveLeft() {
     {
         $('#paginated ul').clearQueue().finish();
         $('#paginated ul li:last-child').prependTo('#paginated ul');
-        $('#paginated ul').css('left', -500);
+        $('#paginated ul').css('left', -1000);
         $('#paginated ul').animate({
             left: + 0
-          }, 200, function(){
+          }, 300, function(){
            jQuery(document).trigger('pageChange');
         });
     }
@@ -50,7 +50,7 @@ function moveLeft() {
         $('#paginated ul').clearQueue().finish();
         $('#paginated ul').animate({
             left: + slideWidth
-          }, 200, function(){
+          }, 300, function(){
             $('#paginated ul li:last-child').prependTo('#paginated ul');
             $('#paginated ul').css('left', '');
             jQuery(document).trigger('pageChange');
@@ -63,10 +63,10 @@ function moveRight() {
     {
         $('#paginated ul').clearQueue().finish();
         $('#paginated ul li:first-child').appendTo('#paginated ul');
-        $('#paginated ul').css('left', +500);
+        $('#paginated ul').css('left', +1000);
         $('#paginated ul').animate({
             left: + 0
-          }, 200, function(){
+          }, 300, function(){
            jQuery(document).trigger('pageChange');
         });
     }
@@ -75,7 +75,7 @@ function moveRight() {
         $('#paginated ul').clearQueue().finish();
         $('#paginated ul').animate({
             left: - slideWidth
-        }, 200, function () {
+        }, 300, function () {
             $('#paginated ul li:first-child').appendTo('#paginated ul');
             $('#paginated ul').css('left', '');
             jQuery(document).trigger('pageChange');
@@ -102,5 +102,12 @@ $(document).on('pageChange', function(){
 
 });
 
+$('.corner').hide();
 
-
+$('.row > div').mouseenter(function(){
+    $($(this).children()[0]).stop().animate({'opacity':1.0});
+    $($(this).children()[1]).stop().show(300);
+}).mouseleave(function(){
+    $($(this).children()[0]).stop().animate({'opacity':0.5});
+    $($(this).children()[1]).stop().hide(300);
+});
